@@ -1,0 +1,31 @@
+# Vad Kotten säger i Mät med klossar. En mening per rad, exakt som appen säger den.
+Mät med klossar!
+Hur många klossar är boken lång?
+Hur många klossar är bänken lång?
+Hur många klossar är stöveln lång?
+Hur många klossar är pinnen lång?
+Lägg klossarna kant i kant.
+ett
+två
+tre
+fyra
+fem
+sex
+Tre klossar! Rätt gissat!
+Fyra klossar! Rätt gissat!
+Fem klossar! Rätt gissat!
+Sex klossar! Rätt gissat!
+Tre klossar! Du gissade två.
+Tre klossar! Du gissade fyra.
+Fyra klossar! Du gissade tre.
+Fyra klossar! Du gissade fem.
+Fem klossar! Du gissade fyra.
+Fem klossar! Du gissade sex.
+Sex klossar! Du gissade fem.
+Sex klossar! Du gissade sju.
+Alla sakerna är mätta! Bra jobbat!
+Mät vad du vill!
+Boken är tre klossar lång.
+Bänken är fyra klossar lång.
+Stöveln är fem klossar lång.
+Pinnen är sex klossar lång.

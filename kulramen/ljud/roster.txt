@@ -1,0 +1,39 @@
+# Vad Kotten säger i Kulramen. En mening per rad, exakt som appen säger den.
+Visa tre kular.
+Visa fem kular.
+Visa sju kular.
+Visa fyra kular.
+Visa åtta kular.
+Visa sex kular.
+Visa nio kular.
+Visa tio kular.
+Ett
+Två
+Tre
+Fyra
+Fem
+Sex
+Sju
+Åtta
+Nio
+Tio
+Fem och ett — sex
+Fem och två — sju
+Fem och tre — åtta
+Fem och fyra — nio
+Fem och fem — tio
+Precis!
+Titta på den kulan!
+Tryck på en kula.
+Fem röda och fem vita.
+Nu är det fest!
+Dra kularna dit du vill.
+Ett. Prova igen!
+Två. Prova igen!
+Tre. Prova igen!
+Fyra. Prova igen!
+Fem. Prova igen!
+Sex. Prova igen!
+Sju. Prova igen!
+Åtta. Prova igen!
+Nio. Prova igen!

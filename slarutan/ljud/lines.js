@@ -1,0 +1,21 @@
+window.__ROST = {
+ "Slå rutan!": "slarutan-01",
+ "Vik papperet! Svep över den streckade linjen.": "slarutan-02",
+ "Svep åt vänster!": "slarutan-03",
+ "Svep uppåt!": "slarutan-04",
+ "Nu är rutan klar!": "slarutan-05",
+ "Svep handflatan över rutan. Snabbt!": "slarutan-06",
+ "Svep snabbare!": "slarutan-07",
+ "Svep längre!": "slarutan-08",
+ "Vänd den!": "slarutan-09",
+ "Rätt! Den vände sig!": "slarutan-10",
+ "Fyra kvar.": "slarutan-11",
+ "Tre kvar.": "slarutan-12",
+ "Två kvar.": "slarutan-13",
+ "En kvar.": "slarutan-14",
+ "Alla fem vände sig!": "slarutan-15",
+ "Titta på den gröna pilen.": "slarutan-16",
+ "Nu får du slå hur mycket du vill!": "slarutan-17",
+ "Bra jobbat!": "slarutan-18",
+ "En gång till!": "slarutan-19"
+};

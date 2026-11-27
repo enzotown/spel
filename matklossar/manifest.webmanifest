@@ -1,0 +1,16 @@
+{
+  "name": "Mät med klossar",
+  "short_name": "Klossar",
+  "description": "Gissa hur många klossar saken är lång och mät sedan med klossar kant i kant. Fyra saker med Kotten.",
+  "lang": "sv",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#eaf3e2",
+  "theme_color": "#eaf3e2",
+  "icons": [
+    { "src": "icon-180.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Duka till gästerna",
+  "short_name": "Duka",
+  "description": "Duka till tre gäster: en tallrik, ett glas och en gaffel till var och en, ur högarna på bänken.",
+  "lang": "sv",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f6f1de",
+  "theme_color": "#f6f1de",
+  "icons": [
+    { "src": "icon-180.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}

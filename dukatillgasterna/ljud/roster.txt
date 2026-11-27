@@ -1,0 +1,21 @@
+# Vad Kotten säger i Duka till gästerna. En mening per rad, exakt som appen säger den.
+Duka till gästerna.
+Lägg en tallrik, ett glas och en gaffel hos varje gäst.
+Lägg den hos en gäst.
+Tack!
+Tack så mycket!
+Oj, där finns redan en tallrik.
+Oj, där finns redan ett glas.
+Oj, där finns redan en gaffel.
+Oj, där finns redan en servett.
+Nu är alla platser dukade!
+Varsågod, maten är klar!
+Ett till bord!
+Nu dukar vi med servetter!
+Alla har fått lika mycket!
+Bra dukat!
+Nu leker vi bara!
+Titta, här fattas en tallrik.
+Titta, här fattas ett glas.
+Titta, här fattas en gaffel.
+Titta, här fattas en servett.

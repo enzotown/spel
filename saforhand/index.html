@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>Så för hand — bär från skål till skål med Kotten</title>
+<meta name="description" content="Ett gammalt mancalaspel i barnhand: barnet tar en skål med bär och sår ett i varje nästa skål medan rösten räknar. Spela mot Kotten, ingen förlust, svensk röst, fungerar offline. För barn 4–7 år.">
+<meta property="og:title" content="Så för hand — en bär i varje skål">
+<meta property="og:description" content="Mancala för små barn: ta en skål med bär, så ett i varje nästa skål medan rösten räknar. Spela mot Kotten — ingen kan förlora, vi räknar ihop i slutet.">
+<meta property="og:image" content="https://spel.shipholm.dev/saforhand/delningsbild.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#f6f1de">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-180.png">
+<link rel="apple-touch-icon" href="icon-180.png">
+<style>
+  html, body {
+    margin: 0; padding: 0; height: 100%; overflow: hidden;
+    background: #f6f1de; font-family: ui-rounded, "Trebuchet MS", system-ui, sans-serif;
+    -webkit-tap-highlight-color: transparent; -webkit-user-select: none; user-select: none;
+    overscroll-behavior: none;
+  }
+  #c { display: block; width: 100vw; height: 100vh; touch-action: none; }
+  .lgr22 {
+    position: fixed; right: 8px; bottom: 3px; opacity: .40;
+    font-size: 12px; color: #4a4033; text-decoration: none;
+    background: rgb(255 250 243 / 80%); border-radius: 8px; padding: 2px 6px; z-index: 3;
+  }
+
+  .rostkredit { position:fixed; right:8px; bottom:6px; max-width:44vw; font:11px/1.35 "Trebuchet MS",Verdana,sans-serif;
+    color:#4a3f39; opacity:.55; text-align:right; z-index:40; }
+  .rostkredit a { color:inherit; }
+  @media (max-width:520px){ .rostkredit { font-size:10px; max-width:52vw; } }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<a class="lgr22" href="larare.html" aria-label="Lärarsida">Lgr22</a>
+<script src="kotten.js"></script>
+<script src="sma-ljud.js"></script>
+<script src="ljud/lines.js"></script>
+<script src="ljud/rosten.js"></script>
+<script src="app.js"></script>
+<p class="rostkredit"><a href="larare.html#rosten">Röst: OmniVoice (k2-fsa, CC BY-NC) · Higgs Materials/Boson AI · Meta Llama 3</a></p>
+</body>
+</html>

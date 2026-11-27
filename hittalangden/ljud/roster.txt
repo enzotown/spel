@@ -1,0 +1,24 @@
+# Vad Kotten säger i Hitta längden. En mening per rad, exakt som appen säger den.
+Hitta den som är tre klossar lång.
+Hitta den som är fyra klossar lång.
+Hitta den som är fem klossar lång.
+Hitta den som är sex klossar lång.
+Titta på ribban. Vilken når ända fram?
+Titta var ribban slutar.
+Precis! Tre klossar!
+Precis! Fyra klossar!
+Precis! Fem klossar!
+Precis! Sex klossar!
+Tre klossar. Leta vidare!
+Fyra klossar. Leta vidare!
+Fem klossar. Leta vidare!
+Sex klossar. Leta vidare!
+Alla hittade! Bra jobbat!
+Tryck på en sak och hör hur lång den är.
+Boken är tre klossar lång.
+Skeden är tre klossar lång.
+Hammaren är fyra klossar lång.
+Bänken är fyra klossar lång.
+Stöveln är fem klossar lång.
+Moroten är fem klossar lång.
+Pinnen är sex klossar lång.

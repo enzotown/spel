@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>Packa väskan — alla saker ska få plats</title>
+<meta name="description" content="En öppen väska med rutor och saker på bänken: barnet drar ner allt i väskan och vrider på det som inte passar. Rumslig packning för barn 4–7 år, svensk röst, ingen förlust, fungerar offline.">
+<meta property="og:title" content="Packa väskan — allt ska få plats">
+<meta property="og:description" content="Fyra väskor ska packas. Dra en sak i taget till rutnätet, tryck för att vrida den, och se locket gå igen när allt fått plats. För barn 4–7 år.">
+<meta property="og:image" content="https://spel.shipholm.dev/packavaskan/delningsbild.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#eef4e4">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-180.png">
+<link rel="apple-touch-icon" href="icon-180.png">
+<style>
+  html, body {
+    margin: 0; padding: 0; height: 100%; overflow: hidden;
+    background: #eef4e4; font-family: ui-rounded, "Trebuchet MS", system-ui, sans-serif;
+    -webkit-tap-highlight-color: transparent; -webkit-user-select: none; user-select: none;
+    overscroll-behavior: none;
+  }
+  #c { display: block; width: 100vw; height: 100vh; touch-action: none; }
+  .lgr22 {
+    position: fixed; right: 8px; bottom: 3px; opacity: .40;
+    font-size: 12px; color: #3f4a3a; text-decoration: none;
+    background: rgb(255 250 243 / 80%); border-radius: 8px; padding: 2px 6px; z-index: 3;
+  }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<a class="lgr22" href="larare.html" aria-label="Lärarsida">Lgr22</a>
+<script src="kotten.js"></script>
+<script src="sma-ljud.js"></script>
+<script src="ljud/lines.js"></script>
+<script src="ljud/rosten.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

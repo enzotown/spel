@@ -1,0 +1,16 @@
+{
+  "name": "Kasta pinnarna",
+  "short_name": "Kasta pinnarna",
+  "description": "Kasta fyra pinnar, räkna dem som ligger på rygg och hoppa lika många stenar — ett koreanskt nyårsspel för barn.",
+  "lang": "sv",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f4e7c9",
+  "theme_color": "#f4e7c9",
+  "icons": [
+    { "src": "icon-180.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}

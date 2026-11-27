@@ -1,0 +1,25 @@
+# Vad Kotten säger i Kasta pinnarna. En mening per rad, exakt som appen säger den.
+Kasta pinnarna!
+Tryck på knappen för att kasta.
+Räkna pinnarna som ligger på rygg.
+Den ligger på mage.
+Ett steg.
+Två steg.
+Tre steg.
+Fyra steg!
+Fem steg!
+Ingen pinne på rygg. Fem steg!
+Hoppa till stenen som lyser.
+Inte dit. Hoppa till den som lyser.
+Du får kasta igen!
+Jag får kasta igen.
+Nu är det min tur.
+Din tur!
+Jag väntar på dig!
+Vi är framme!
+Bra jobbat!
+Ett
+Två
+Tre
+Fyra
+Fem

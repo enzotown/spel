@@ -1,0 +1,16 @@
+{
+  "name": "Hitta längden",
+  "short_name": "Längden",
+  "description": "En ribba av klossar visar hur långt det ska vara. Hitta saken på hyllan som är precis lika lång.",
+  "lang": "sv",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#eaf3e2",
+  "theme_color": "#eaf3e2",
+  "icons": [
+    { "src": "icon-180.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}

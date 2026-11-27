@@ -1,0 +1,16 @@
+{
+  "name": "Dela lika",
+  "short_name": "Dela lika",
+  "description": "Dela bären så att tre vänner får lika många — och se vad som blir över.",
+  "lang": "sv",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#eef4e4",
+  "theme_color": "#eef4e4",
+  "icons": [
+    { "src": "icon-180.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}

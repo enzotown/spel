@@ -1,0 +1,16 @@
+{
+  "name": "Blinda ansiktet",
+  "short_name": "Blinda",
+  "description": "Fukuwarai för barn 4–7 år: lägg ansiktets delar under en duk och lyft den sedan.",
+  "lang": "sv",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#e2b877",
+  "theme_color": "#e2b877",
+  "icons": [
+    { "src": "icon-180.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}

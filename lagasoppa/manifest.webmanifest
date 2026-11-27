@@ -1,0 +1,16 @@
+{
+  "name": "Laga soppa med Kotten",
+  "short_name": "Laga soppa",
+  "description": "Följ receptet: tre saker i ordning och lika många prickar som det ska i grytan. Fyra soppor med Kotten.",
+  "lang": "sv",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f9eeda",
+  "theme_color": "#f9eeda",
+  "icons": [
+    { "src": "icon-180.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}

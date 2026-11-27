@@ -1,0 +1,16 @@
+{
+  "name": "Slå rutan",
+  "short_name": "Slå rutan",
+  "description": "Ddakji för barn 4–7 år: vik ett papper tre gånger och svep handflatan så att kompisens ruta vänder sig.",
+  "lang": "sv",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#ecd9b0",
+  "theme_color": "#ecd9b0",
+  "icons": [
+    { "src": "icon-180.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}

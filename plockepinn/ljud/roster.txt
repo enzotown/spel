@@ -1,0 +1,18 @@
+# Vad Kotten säger i Plockepinn. En mening per rad, exakt som appen säger den.
+Plockepinn!
+Dra ut en pinne som ligger fritt.
+Oj, den ligger under en annan pinne.
+Titta, den här går att ta.
+Alla pinnar är ute!
+Nu räknar vi alla pinnar.
+Bra jobbat!
+Ett
+Två
+Tre
+Fyra
+Fem
+Sex
+Sju
+Åtta
+Nio
+Tio

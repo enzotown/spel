@@ -1,0 +1,18 @@
+# Vad Kotten säger i Packa väskan. En mening per rad, exakt som appen säger den.
+Packa väskan! Alla saker ska få plats.
+Dra en sak till väskan. Tryck på en sak för att vrida den.
+Ny väska! Alla saker ska få plats.
+Ett
+Två
+Tre
+Fyra
+Fem
+Sex
+Sju
+Åtta
+Allt fick plats! Bra jobbat!
+Nu är det fest! Packa hur du vill.
+Titta här — här finns en plats.
+Den får inte plats så. Dra ut den först.
+Prova att vrida den. Tryck på saken.
+Inte där. Prova en annan plats.

@@ -1,0 +1,16 @@
+{
+  "name": "Packa väskan",
+  "short_name": "Packa väskan",
+  "description": "Dra ner sakerna i väskan och vrid på det som inte passar — allt ska få plats.",
+  "lang": "sv",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#eef4e4",
+  "theme_color": "#eef4e4",
+  "icons": [
+    { "src": "icon-180.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}

@@ -1,0 +1,15 @@
+# Vad Kotten säger i Längdraden. En mening per rad, exakt som appen säger den.
+Lägg pinnarna i rad. Den kortaste först.
+Titta på topparna. Vilken pinne är kortast?
+Börja med den kortaste pinnen.
+Nästan! Titta på topparna igen.
+Nu blir det en trappa!
+Precis! Kortast först, längst sist!
+Precis! Längst först, kortast sist!
+Alla pinnar i rad! Bra jobbat!
+Kortast.
+Näst kortast.
+I mitten.
+Näst längst.
+Längst.
+Tryck på en pinne och hör hur den är.

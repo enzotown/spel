@@ -1,0 +1,22 @@
+window.__ROST = {
+ "Duka till gästerna.": "dukatillgasterna-01",
+ "Lägg en tallrik, ett glas och en gaffel hos varje gäst.": "dukatillgasterna-02",
+ "Lägg den hos en gäst.": "dukatillgasterna-03",
+ "Tack!": "dukatillgasterna-04",
+ "Tack så mycket!": "dukatillgasterna-05",
+ "Oj, där finns redan en tallrik.": "dukatillgasterna-06",
+ "Oj, där finns redan ett glas.": "dukatillgasterna-07",
+ "Oj, där finns redan en gaffel.": "dukatillgasterna-08",
+ "Oj, där finns redan en servett.": "dukatillgasterna-09",
+ "Nu är alla platser dukade!": "dukatillgasterna-10",
+ "Varsågod, maten är klar!": "dukatillgasterna-11",
+ "Ett till bord!": "dukatillgasterna-12",
+ "Nu dukar vi med servetter!": "dukatillgasterna-13",
+ "Alla har fått lika mycket!": "dukatillgasterna-14",
+ "Bra dukat!": "dukatillgasterna-15",
+ "Nu leker vi bara!": "dukatillgasterna-16",
+ "Titta, här fattas en tallrik.": "dukatillgasterna-17",
+ "Titta, här fattas ett glas.": "dukatillgasterna-18",
+ "Titta, här fattas en gaffel.": "dukatillgasterna-19",
+ "Titta, här fattas en servett.": "dukatillgasterna-20"
+};

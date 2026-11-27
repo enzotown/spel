@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<title>Spelen</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="theme-color" content="#fdf3e7">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="description" content="Alla små spelen på ett ställe. Tryck på en bild och spela.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Spelen">
+<meta property="og:description" content="Alla små spelen på ett ställe. Tryck på en bild och spela.">
+<meta property="og:image" content="https://spel.shipholm.dev/delningsbild.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="sv_SE">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<style>
+  :root {
+    --papper: #fdf3e7;
+    --krita: #f6e7d3;
+    --bläck: #4a3f39;
+    --dämpad: #8a7a6d;
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; }
+  body {
+    background:
+      radial-gradient(circle at 12% 6%, #ffe9c9 0 22%, transparent 22.5%),
+      radial-gradient(circle at 92% 96%, #d9f0e4 0 24%, transparent 24.5%),
+      var(--papper);
+    color: var(--bläck);
+    font-family: "Nunito", "Trebuchet MS", "Segoe UI", system-ui, sans-serif;
+    padding: max(18px, env(safe-area-inset-top)) 20px calc(26px + env(safe-area-inset-bottom));
+    min-height: 100dvh;
+    -webkit-text-size-adjust: 100%;
+    user-select: none;
+  }
+  header { max-width: 1100px; margin: 0 auto 6px; display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+  h1 { font-size: clamp(28px, 4.6vw, 44px); margin: 0 0 2px; letter-spacing: -.5px; }
+  .under { margin: 0; color: var(--dämpad); font-size: clamp(14px, 1.9vw, 19px); }
+  section { max-width: 1100px; margin: 26px auto 0; }
+  /* [hidden] måste vinna över display:flex på korten, annars gör ?spel=-filtret ingenting */
+  [hidden] { display: none !important; }
+  h2 { font-size: clamp(15px, 2vw, 19px); text-transform: uppercase; letter-spacing: 1.4px; color: var(--dämpad); margin: 0 0 12px; }
+  /* två kolumner smalt, aldrig fler än fyra i bredd (då blir raderna jämna) */
+  .rad { display: grid; gap: clamp(12px, 1.8vw, 20px); grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  @media (min-width: 560px) { .rad { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  @media (min-width: 860px) { .rad { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+  a.kort {
+    display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
+    gap: 8px; padding: 14px 10px 12px; border-radius: 26px; text-decoration: none;
+    background: #fff; color: var(--bläck);
+    border: 3px solid var(--kant, #f0e0cd);
+    box-shadow: 0 5px 0 rgba(74, 63, 57, .10);
+    transition: transform .12s ease, box-shadow .12s ease;
+    min-height: 168px;
+  }
+  a.kort:active { transform: translateY(3px) scale(.985); box-shadow: 0 2px 0 rgba(74, 63, 57, .10); }
+  a.kort img { width: clamp(64px, 12vw, 96px); height: auto; aspect-ratio: 1/1; border-radius: 22px; display: block; background: var(--krita); }
+  .namn { font-weight: 800; font-size: clamp(16px, 2.1vw, 21px); text-align: center; line-height: 1.15; }
+  .vad { font-size: clamp(12px, 1.5vw, 15px); color: var(--dämpad); text-align: center; line-height: 1.25; }
+  #fortsatt .kort { border-color: #f0c48a; background: #fffaf1; }
+  #fortsatt .kort img { width: clamp(70px, 13vw, 104px); }
+  .senast { font-size: 11px; font-weight: 800; letter-spacing: 1.2px; color: #c4705c; text-transform: uppercase; }
+  footer { max-width: 1100px; margin: 34px auto 0; color: var(--dämpad); font-size: 13px; text-align: center; }
+  @media (prefers-reduced-motion: reduce) { a.kort { transition: none; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Spelen</h1>
+  <p class="under">Tryck på en bild – inget kan gå förlorat.</p>
+</header>
+
+<main>
+  <section id="fortsatt" hidden>
+    <h2>Fortsätt</h2>
+    <div class="rad" id="fortsatt-rad"></div>
+  </section>
+
+  <section>
+    <h2>Låtsas</h2>
+    <div class="rad">
+      <a class="kort" data-slug="lillstaden" href="https://lillstaden.shipholm.dev/" style="--kant:#cfe6c8">
+        <img src="https://lillstaden.shipholm.dev/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Lilla Staden</span><span class="vad">Gå runt bland husen</span>
+      </a>
+      <a class="kort" data-slug="lilla-hotellet" href="https://lilla-hotellet.shipholm.dev/" style="--kant:#ecd7bd">
+        <img src="https://lilla-hotellet.shipholm.dev/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Lilla Hotellet</span><span class="vad">Bädda och checka in</span>
+      </a>
+      <a class="kort" data-slug="pannkakskafeet" href="https://pannkakskafeet.shipholm.dev/" style="--kant:#f7ddb6">
+        <img src="https://pannkakskafeet.shipholm.dev/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Pannkakskaféet</span><span class="vad">Grädda åt gästerna</span>
+      </a>
+      <a class="kort" data-slug="fargkokeriet" href="https://fargkokeriet.shipholm.dev/" style="--kant:#e3d3ef">
+        <img src="https://fargkokeriet.shipholm.dev/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Färgkokeriet</span><span class="vad">Blanda färger och måla</span>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Pyssla och spela</h2>
+    <div class="rad">
+      <a class="kort" data-slug="kullabacken" href="https://kullabacken.shipholm.dev/" style="--kant:#cfe3f2">
+        <img src="https://kullabacken.shipholm.dev/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Kullabacken</span><span class="vad">Kör bilen i backarna</span>
+      </a>
+      <a class="kort" data-slug="monsterbanan" href="https://monsterbanan.shipholm.dev/" style="--kant:#f6d2cf">
+        <img src="https://monsterbanan.shipholm.dev/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Monsterbanan</span><span class="vad">Pärlor i mönster</span>
+      </a>
+      <a class="kort" data-slug="pianot" href="https://pianot.shipholm.dev/" style="--kant:#d6dcf2">
+        <img src="https://pianot.shipholm.dev/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Pianot</span><span class="vad">Spela fallande noter</span>
+      </a>
+      <a class="kort" data-slug="rannan" href="https://rannan.shipholm.dev/" style="--kant:#cfe9ef">
+        <img src="https://rannan.shipholm.dev/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Rännan</span><span class="vad">Låt vattnet rinna</span>
+      </a>
+      <a class="kort" data-slug="skogsstigen" href="https://skogsstigen.shipholm.dev/" style="--kant:#bfe4dd">
+        <img src="https://skogsstigen.shipholm.dev/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Skogsstigen</span><span class="vad">Hoppa och bygg en koja</span>
+      </a>
+      <a class="kort" data-slug="byggplattan" href="https://byggplattan.shipholm.dev/" style="--kant:#e8d3ae">
+        <img src="https://byggplattan.shipholm.dev/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Byggplattan</span><span class="vad">Bygg av klossar</span>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Tänka och lyssna</h2>
+    <div class="rad">
+      <a class="kort" data-slug="klockan" href="https://klockan.shipholm.dev/" style="--kant:#f7ddb6">
+        <img src="https://klockan.shipholm.dev/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Klockan</span><span class="vad">Ställ, läs och siffror</span>
+      </a>
+      <a class="kort" data-slug="kasinot" href="https://kasinot.shipholm.dev/" style="--kant:#f6d2cf">
+        <img src="https://kasinot.shipholm.dev/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Kasinot</span><span class="vad">Snurra och gissa</span>
+      </a>
+      <a class="kort" data-slug="ljudkvartetten" href="https://ljudkvartetten.shipholm.dev/" style="--kant:#e3d3ef">
+        <img src="https://ljudkvartetten.shipholm.dev/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Ljudkvartetten</span><span class="vad">Lyssna och hitta rätt</span>
+      </a>
+      <a class="kort" data-slug="roboten" href="https://roboten.shipholm.dev/" style="--kant:#d7e6e3">
+        <img src="https://roboten.shipholm.dev/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Roboten</span><span class="vad">Styr med kommandon</span>
+      </a>
+      <a class="kort" data-slug="schackskolan" href="https://schackskolan.shipholm.dev/" style="--kant:#e6e0d3">
+        <img src="https://schackskolan.shipholm.dev/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Schackskolan</span><span class="vad">Lär dig pjäserna</span>
+      </a>
+      <a class="kort" data-slug="luffarschack" href="https://luffarschack.shipholm.dev/" style="--kant:#d5ead9">
+        <img src="https://luffarschack.shipholm.dev/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Luffarschack</span><span class="vad">Tre i rad i skogen</span>
+      </a>
+      <a class="kort" data-slug="triptrap" href="https://triptrap.shipholm.dev/" style="--kant:#e2eec2">
+        <img src="https://triptrap.shipholm.dev/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Trip Trap Träd</span><span class="vad">Dra ut en planka</span>
+      </a>
+      <a class="kort" data-slug="reaktionsbanan" href="https://reaktionsbanan.shipholm.dev/" style="--kant:#f7dca6">
+        <img src="https://reaktionsbanan.shipholm.dev/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Reaktionsbanan</span><span class="vad">Tänd lyktan i tid</span>
+      </a>
+      <a class="kort" data-slug="namnklapp" href="https://namnklapp.shipholm.dev/" style="--kant:#cfe6df">
+        <img src="https://namnklapp.shipholm.dev/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Namnklapp</span><span class="vad">Klappa ihop ett namn</span>
+      </a>
+      <a class="kort" data-slug="triptrapkort" href="https://triptrapkort.shipholm.dev/" style="--kant:#cfe9df">
+        <img src="https://triptrapkort.shipholm.dev/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Trip Trap Kort</span><span class="vad">Para ihop lika många</span>
+      </a>
+      <a class="kort" data-slug="lyssnagor" href="https://lyssnagor.shipholm.dev/" style="--kant:#f2dfc0">
+        <img src="https://lyssnagor.shipholm.dev/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Lyssna och gör</span><span class="vad">Lägg rätt sak i lådan</span>
+      </a>
+      <a class="kort" data-slug="ljudaihop" href="https://ljudaihop.shipholm.dev/" style="--kant:#dbeecb">
+        <img src="https://ljudaihop.shipholm.dev/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Ljuda ihop</span><span class="vad">Hör första ljudet i ordet</span>
+      </a>
+      <a class="kort" data-slug="lyssnaochsla" href="https://spel.shipholm.dev/lyssnaochsla/" style="--kant:#e8d3ab">
+        <img src="https://spel.shipholm.dev/lyssnaochsla/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Lyssna och slå</span><span class="vad">Hör ordet — slå på bilden</span>
+      </a>
+      <a class="kort" data-slug="rimstugan" href="https://rimstugan.shipholm.dev/" style="--kant:#f0dcc4">
+        <img src="https://rimstugan.shipholm.dev/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Rimstugan</span><span class="vad">Vad rimmar på sol?</span>
+      </a>
+      <a class="kort" data-slug="byggordet" href="https://byggordet.shipholm.dev/" style="--kant:#d9ecce">
+        <img src="https://byggordet.shipholm.dev/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Bygg ordet</span><span class="vad">Sol och en blir solen</span>
+      </a>
+      <a class="kort" data-slug="vandordet" href="https://vandordet.shipholm.dev/" style="--kant:#f6e6c2">
+        <img src="https://vandordet.shipholm.dev/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Vänd på ordet</span><span class="vad">Hatt blir katt</span>
+      </a>
+      <a class="kort" data-slug="sistaljudet" href="https://sistaljudet.shipholm.dev/" style="--kant:#e6e0c8">
+        <img src="https://sistaljudet.shipholm.dev/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Byt sista ljudet</span><span class="vad">Mus blir mur</span>
+      </a>
+      <a class="kort" data-slug="ramsatakt" href="https://ramsatakt.shipholm.dev/" style="--kant:#e2efdb">
+        <img src="https://ramsatakt.shipholm.dev/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Ramsa i takt</span><span class="vad">Klappa stavelserna</span>
+      </a>
+      <a class="kort" data-slug="kanslor" href="https://kanslor.shipholm.dev/" style="--kant:#f6d2cf">
+        <img src="https://kanslor.shipholm.dev/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Känslor och kompisar</span><span class="vad">Glad, ledsen eller rädd?</span>
+      </a>
+      <a class="kort" data-slug="djuren" href="https://djuren.shipholm.dev/" style="--kant:#cfe6c8">
+        <img src="https://djuren.shipholm.dev/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Mata djuren</span><span class="vad">Vem äter vad?</span>
+      </a>
+      <a class="kort" data-slug="matkotten" href="https://matkotten.shipholm.dev/" style="--kant:#efdcb4">
+        <img src="https://matkotten.shipholm.dev/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Mät med Kotten</span><span class="vad">Längst, tyngst och mest</span>
+      </a>
+      <a class="kort" data-slug="hamtaratt" href="https://hamtaratt.shipholm.dev/" style="--kant:#dcd8ef">
+        <img src="https://hamtaratt.shipholm.dev/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Hämta rätt antal</span><span class="vad">Precis så många som siffran</span>
+      </a>
+      <a class="kort" data-slug="sparen" href="https://sparen.shipholm.dev/" style="--kant:#cfe2f0">
+        <img src="https://sparen.shipholm.dev/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Spåren i snön</span><span class="vad">Över, bakom eller förbi?</span>
+      </a>
+      <a class="kort" data-slug="barkorgen" href="https://barkorgen.shipholm.dev/" style="--kant:#d7ecc4">
+        <img src="https://barkorgen.shipholm.dev/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Bärkorgen</span><span class="vad">Blåbär, lingon och hjortron</span>
+      </a>
+      <a class="kort" data-slug="vackdjuren" href="https://vackdjuren.shipholm.dev/" style="--kant:#c9d6ef">
+        <img src="https://vackdjuren.shipholm.dev/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Väck djuren</span><span class="vad">Lyssna — vem låter?</span>
+      </a>
+      <a class="kort" data-slug="vemborvar" href="https://vemborvar.shipholm.dev/" style="--kant:#dfe9c8">
+        <img src="https://vemborvar.shipholm.dev/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Vem bor var?</span><span class="vad">Fågeln bor i boet</span>
+      </a>
+      <a class="kort" data-slug="plantera" href="https://plantera.shipholm.dev/" style="--kant:#e9dcae">
+        <img src="https://plantera.shipholm.dev/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Plantera!</span><span class="vad">Jord, frö, vatten, sol</span>
+      </a>
+      <a class="kort" data-slug="balansvagen" href="https://balansvagen.shipholm.dev/" style="--kant:#e3cfae">
+        <img src="https://balansvagen.shipholm.dev/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Balansvågen</span><span class="vad">Väg lika mycket</span>
+      </a>
+      <a class="kort" data-slug="vattenkannan" href="https://vattenkannan.shipholm.dev/" style="--kant:#9fd4ea">
+        <img src="https://vattenkannan.shipholm.dev/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Vattenkannan</span><span class="vad">Häll lika mycket i båda glasen</span>
+      </a>
+      <a class="kort" data-slug="tvasatt" href="https://tvasatt.shipholm.dev/" style="--kant:#e3c9c9">
+        <img src="https://tvasatt.shipholm.dev/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Två sätt att sortera</span><span class="vad">Samma bär, andra högar</span>
+      </a>
+      <a class="kort" data-slug="skordetid" href="https://skordetid.shipholm.dev/" style="--kant:#c9dfae">
+        <img src="https://skordetid.shipholm.dev/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Skördetid</span><span class="vad">Plocka bara de mogna bären</span>
+      </a>
+      <a class="kort" data-slug="staplarna" href="https://staplarna.shipholm.dev/" style="--kant:#f0dcc8">
+        <img src="https://staplarna.shipholm.dev/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Staplarna</span><span class="vad">Sortera bären i staplar</span>
+      </a>
+      <a class="kort" data-slug="minnesbordet" href="https://minnesbordet.shipholm.dev/" style="--kant:#cfe3ec">
+        <img src="https://minnesbordet.shipholm.dev/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Minnesbordet</span><span class="vad">Vad fattas under filten?</span>
+      </a>
+      <a class="kort" data-slug="vadfattas" href="https://vadfattas.shipholm.dev/" style="--kant:#d3e2f2">
+        <img src="https://vadfattas.shipholm.dev/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Vad fattas i raden?</span><span class="vad">Hitta luckan i mönstret</span>
+      </a>
+      <a class="kort" data-slug="sopsortering" href="https://sopsortering.shipholm.dev/" style="--kant:#d8e6c4">
+        <img src="https://sopsortering.shipholm.dev/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Sopsortering</span><span class="vad">Papper, plast eller mat?</span>
+      </a>
+      <a class="kort" data-slug="spegelangen" href="https://spegelangen.shipholm.dev/" style="--kant:#f2d9e2">
+        <img src="https://spegelangen.shipholm.dev/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Spegelängen</span><span class="vad">Gör andra sidan likadan</span>
+      </a>
+      <a class="kort" data-slug="forstochsen" href="https://forstochsen.shipholm.dev/" style="--kant:#efdcc2">
+        <img src="https://forstochsen.shipholm.dev/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Först och sen</span><span class="vad">Lägg sagan i ordning</span>
+      </a>
+      <a class="kort" data-slug="vilkenhorintehit" href="https://spel.shipholm.dev/vilkenhorintehit/" style="--kant:#f2d3c4">
+        <img src="https://spel.shipholm.dev/vilkenhorintehit/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Vilken hör inte hit?</span><span class="vad">Hitta undantaget</span>
+      </a>
+      <a class="kort" data-slug="vridratt" href="https://spel.shipholm.dev/vridratt/" style="--kant:#cfe4dc">
+        <img src="https://spel.shipholm.dev/vridratt/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Vrid rätt</span><span class="vad">Vrid biten tills den passar</span>
+      </a>
+      <a class="kort" data-slug="tarningsstigen" href="https://spel.shipholm.dev/tarningsstigen/" style="--kant:#e6dcbf">
+        <img src="https://spel.shipholm.dev/tarningsstigen/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Tärningsstigen</span><span class="vad">Slå tärningen och gå</span>
+      </a>
+      <a class="kort" data-slug="lagasoppa" href="https://spel.shipholm.dev/lagasoppa/" style="--kant:#f0cfae">
+        <img src="https://spel.shipholm.dev/lagasoppa/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Laga soppa</span><span class="vad">Följ receptet ner i grytan</span>
+      </a>
+      <a class="kort" data-slug="matklossar" href="https://spel.shipholm.dev/matklossar/" style="--kant:#dbe8c8">
+        <img src="https://spel.shipholm.dev/matklossar/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Mät med klossar</span><span class="vad">Hur många klossar är den lång?</span>
+      </a>
+      <a class="kort" data-slug="hittalangden" href="https://spel.shipholm.dev/hittalangden/" style="--kant:#e6ddc4">
+        <img src="https://spel.shipholm.dev/hittalangden/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Hitta längden</span><span class="vad">Vilken sak är lika lång som ribban?</span>
+      </a>
+      <a class="kort" data-slug="langdraden" href="https://spel.shipholm.dev/langdraden/" style="--kant:#e3dcc0">
+        <img src="https://spel.shipholm.dev/langdraden/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Längdraden</span><span class="vad">Lägg pinnarna kortast först</span>
+      </a>
+      <a class="kort" data-slug="delalika" href="https://spel.shipholm.dev/delalika/" style="--kant:#dfe0f0">
+        <img src="https://spel.shipholm.dev/delalika/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Dela lika</span><span class="vad">Ge alla tre vänner lika många bär</span>
+      </a>
+      <a class="kort" data-slug="packavaskan" href="https://spel.shipholm.dev/packavaskan/" style="--kant:#e4d6c2">
+        <img src="https://spel.shipholm.dev/packavaskan/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Packa väskan</span><span class="vad">Få plats med allt — vrid och passa in</span>
+      </a>
+      <a class="kort" data-slug="saforhand" href="https://spel.shipholm.dev/saforhand/" style="--kant:#e8dcc0">
+        <img src="https://spel.shipholm.dev/saforhand/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Så för hand</span><span class="vad">Så ett bär i varje skål — rösten räknar</span>
+      </a>
+      <a class="kort" data-slug="dukatillgasterna" href="https://spel.shipholm.dev/dukatillgasterna/" style="--kant:#e8dcc0">
+        <img src="https://spel.shipholm.dev/dukatillgasterna/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Duka till gästerna</span><span class="vad">Tallrik, glas och gaffel till var och en</span>
+      </a>
+      <a class="kort" data-slug="kulramen" href="https://spel.shipholm.dev/kulramen/" style="--kant:#e8d2c4">
+        <img src="https://spel.shipholm.dev/kulramen/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Kulramen</span><span class="vad">Fem röda och fem vita — visa talet</span>
+      </a>
+      <a class="kort" data-slug="plockepinn" href="https://spel.shipholm.dev/plockepinn/" style="--kant:#e8d2b4">
+        <img src="https://spel.shipholm.dev/plockepinn/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Plockepinn</span><span class="vad">Dra ut en pinne som ligger fritt</span>
+      </a>
+      <a class="kort" data-slug="kastapinnarna" href="https://spel.shipholm.dev/kastapinnarna/" style="--kant:#e6d3b6">
+        <img src="https://spel.shipholm.dev/kastapinnarna/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Kasta pinnarna</span><span class="vad">Kasta, räkna och hoppa framåt</span>
+      </a>
+      <a class="kort" data-slug="knappabrickor" href="https://spel.shipholm.dev/knappabrickor/" style="--kant:#e2b877">
+        <img src="https://spel.shipholm.dev/knappabrickor/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Knäppa brickor</span><span class="vad">Dra mot ringen och släpp</span>
+      </a>
+      <a class="kort" data-slug="blindaansiktet" href="https://spel.shipholm.dev/blindaansiktet/" style="--kant:#cfe8dd">
+        <img src="https://spel.shipholm.dev/blindaansiktet/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Blinda ansiktet</span><span class="vad">Lägg delarna under duken — lyft sedan</span>
+      </a>
+      <a class="kort" data-slug="slarutan" href="https://spel.shipholm.dev/slarutan/" style="--kant:#e9d6ad">
+        <img src="https://spel.shipholm.dev/slarutan/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Slå rutan</span><span class="vad">Vik papperet och svep så att rutan vänder sig</span>
+      </a>
+      <a class="kort" data-slug="sagostugan" href="https://sagostugan.shipholm.dev/" style="--kant:#e8c79a">
+        <img src="https://sagostugan.shipholm.dev/icon-180.png" alt="" width="180" height="180">
+        <span class="namn">Sagostugan</span><span class="vad">Kotten berättar, du väljer</span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer>Utan reklam, utan köp. Gjord att spelas på iPad.<br><span style="opacity:.7">Lärare: lägg till <code>?spel=klockan,kasinot</code> i adressen för att visa bara några spel.</span></footer>
+
+<script>
+  (function () {
+    const NYCKEL = 'marre-senast';
+    const kort = [...document.querySelectorAll('a.kort')];
+    const slugAv = new URLSearchParams(location.search).get('spel');
+
+    // 1. bara några spel: ?spel=klockan,kasinot
+    if (slugAv) {
+      const vill = slugAv.split(',').map((t) => t.trim().toLowerCase()).filter(Boolean);
+      let kvar = 0;
+      kort.forEach((a) => {
+        const visa = vill.includes(a.dataset.slug);
+        a.hidden = !visa;
+        if (visa) kvar++;
+      });
+      document.querySelectorAll('main section').forEach((sek) => {
+        const synliga = [...sek.querySelectorAll('a.kort')].filter((a) => !a.hidden);
+        sek.hidden = synliga.length === 0;
+      });
+      if (kvar) {   // meningen i sidhuvudet säger att det är ett urval
+        const u = document.querySelector('.under');
+        if (u) u.innerHTML = 'Bara några spel idag. <a href="./" style="color:#c4705c">Visa alla</a>';
+      } else {
+        kort.forEach((a) => { a.hidden = false; });
+        document.querySelectorAll('main section').forEach((sek) => { sek.hidden = false; });
+      }
+    }
+
+    // 2. fortsätt där man var
+    const senast = localStorage.getItem(NYCKEL);
+    const kortet = kort.find((a) => a.dataset.slug === senast);
+    if (kortet && !kortet.hidden) {
+      const kopia = kortet.cloneNode(true);
+      kopia.querySelector('.senast')?.remove();
+      const rad = document.getElementById('fortsatt-rad');
+      const m = document.createElement('span');
+      m.className = 'senast';
+      m.textContent = 'Senast spelad';
+      kopia.insertBefore(m, kopia.querySelector('.namn'));
+      rad.appendChild(kopia);
+      document.getElementById('fortsatt').hidden = false;
+    }
+
+    // 3. kom ihåg valet
+    kort.forEach((a) => a.addEventListener('click', () => {
+      try { localStorage.setItem(NYCKEL, a.dataset.slug); } catch (e) {}
+    }));
+  })();
+
+  if ('serviceWorker' in navigator && location.protocol === 'https:') {
+    addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+  }
+</script>
+</body>
+</html>

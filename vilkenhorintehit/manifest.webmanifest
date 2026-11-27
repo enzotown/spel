@@ -1,0 +1,16 @@
+{
+  "name": "Vilken hör inte hit? med Kotten",
+  "short_name": "Hör inte hit",
+  "description": "Fyra saker, tre hör ihop. Hitta undantaget och hör Kotten säga varför. Sex kategorier med Kotten.",
+  "lang": "sv",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f4ead9",
+  "theme_color": "#f4ead9",
+  "icons": [
+    { "src": "icon-180.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}

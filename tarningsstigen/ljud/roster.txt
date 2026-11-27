@@ -1,0 +1,18 @@
+# Röst till Tärningsstigen (en mening per rad)
+Slå tärningen!
+Två! Gå två steg.
+Tre! Gå tre steg.
+Fyra! Gå fyra steg.
+Fem! Gå fem steg.
+Sex! Gå sex steg.
+ett
+två
+tre
+fyra
+fem
+sex
+Rätt! Bra räknat!
+Slå tärningen först!
+Alla steg! Bra jobbat!
+Här kan du slå hur mycket du vill.
+Nu går vi igen!

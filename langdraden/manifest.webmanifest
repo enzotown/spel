@@ -1,0 +1,16 @@
+{
+  "name": "Längdraden",
+  "short_name": "Längdraden",
+  "description": "Fem pinnar ska stå i rad, kortast först. Dra dem till raden och se trappan växa.",
+  "lang": "sv",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#eef4e4",
+  "theme_color": "#eef4e4",
+  "icons": [
+    { "src": "icon-180.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}

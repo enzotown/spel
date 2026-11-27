@@ -1,0 +1,16 @@
+{
+  "name": "Så för hand",
+  "short_name": "Så för hand",
+  "description": "Mancala för små barn: så ett bär i varje skål medan rösten räknar. Spela mot Kotten utan förlust.",
+  "lang": "sv",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f6f1de",
+  "theme_color": "#f6f1de",
+  "icons": [
+    { "src": "icon-180.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}

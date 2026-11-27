@@ -1,0 +1,42 @@
+# Vad Kotten säger i Laga soppa. En mening per rad, exakt som appen säger den.
+Nu lagar vi morotssoppa!
+Nu lagar vi svampsoppa!
+Nu lagar vi ärtsoppa!
+Nu lagar vi fruktsoppa!
+Lägg i en morot.
+Lägg i två morötter.
+Lägg i tre morötter.
+Lägg i en potatis.
+Lägg i två potatisar.
+Lägg i tre potatisar.
+Lägg i en lök.
+Lägg i två lökar.
+Lägg i tre lökar.
+Lägg i en svamp.
+Lägg i två svampar.
+Lägg i tre svampar.
+Lägg i ett äpple.
+Lägg i två äpplen.
+Lägg i tre äpplen.
+Lägg i ett blåbär.
+Lägg i två blåbär.
+Lägg i tre blåbär.
+Lägg i en ärta.
+Lägg i två ärtor.
+Lägg i tre ärtor.
+Lägg i vatten.
+ett
+två
+tre
+Nej, den hör inte i soppan.
+Nu kokar soppan!
+Soppan är klar! Bra jobbat!
+Nu får du laga vad du vill!
+morot
+potatis
+lök
+svamp
+äpple
+blåbär
+ärta
+vatten

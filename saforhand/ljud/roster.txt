@@ -1,0 +1,29 @@
+# Vad Kotten säger i Så för hand. En mening per rad, exakt som appen säger den.
+Din tur.
+Ta en skål med bär och så framåt.
+Välj en skål med bär.
+Nu är det min tur.
+Oj, jag tar den!
+Ett
+Två
+Tre
+Fyra
+Fem
+Sex
+Sju
+Åtta
+Nio
+Tio
+Elva
+Tolv
+Inget
+Sista bären hamnade i din korg! En gång till!
+Vi räknar!
+Du fick
+Kotten fick
+Oj, så många!
+Din korg har fler bär!
+Min korg har fler bär! En gång till?
+Lika många! Vilket bra spel!
+Bra spelat!
+Nu leker vi bara!

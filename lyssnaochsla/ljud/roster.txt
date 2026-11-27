@@ -1,0 +1,27 @@
+# Vad Kotten säger i Lyssna och slå. En mening per rad, exakt som appen säger den.
+Lyssna och slå!
+Lyssna! Slå på bilden som Kotten säger.
+Högtalaren säger ordet igen.
+boll
+katt
+hund
+fisk
+stjärna
+hatt
+bil
+buss
+blomma
+äpple
+banan
+måne
+sol
+sko
+mugg
+nyckel
+klocka
+tårta
+Rätt!
+Prova igen.
+Titta här!
+Alla sex har du!
+Bra jobbat! Nu kan du alla ord.
